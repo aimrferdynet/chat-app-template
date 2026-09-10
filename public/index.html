@@ -2,50 +2,85 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>AI Mr Ferdy - Chat AI Bahasa Indonesia</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <meta
+    name="theme-color"
+    content="#212121"
+  />
 
   <meta
     name="description"
-    content="AI Mr Ferdy adalah chat AI online gratis untuk membantu menjawab pertanyaan, membuat tulisan, mencari ide, coding, dan berbagai kebutuhan lainnya."
+    content="AI Mr Ferdy adalah AI chat online gratis untuk membantu coding, SEO, menulis, ide konten, dan berbagai kebutuhan sehari-hari."
   />
 
   <meta
-    name="keywords"
-    content="AI chat Indonesia, chat AI gratis, AI Mr Ferdy, chatbot Indonesia, AI online gratis"
+    name="robots"
+    content="index, follow"
   />
 
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#ffffff" />
-
-  <link rel="canonical" href="https://chat.aimrferdy.net/" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="AI Mr Ferdy - Chat AI Bahasa Indonesia" />
-  <meta
-    property="og:description"
-    content="Chat dengan AI Mr Ferdy untuk mendapatkan jawaban, ide, bantuan coding, tulisan, dan berbagai kebutuhan lainnya."
+  <link
+    rel="canonical"
+    href="https://chat.aimrferdy.net/"
   />
-  <meta property="og:url" content="https://chat.aimrferdy.net/" />
-  <meta property="og:site_name" content="AI Mr Ferdy" />
+
+  <title>AI Mr Ferdy - AI Chat Bahasa Indonesia</title>
+
+  <!-- Highlight.js -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark.min.css"
+  />
 
   <style>
+    :root {
+      --sidebar: #171717;
+      --sidebar-hover: #2a2a2a;
+      --main: #212121;
+      --surface: #2f2f2f;
+      --surface-hover: #3a3a3a;
+      --border: rgba(255,255,255,.08);
+
+      --text: #ececec;
+      --muted: #a0a0a0;
+      --muted-2: #777;
+
+      --white: #ffffff;
+      --black: #000000;
+
+      --accent: #10a37f;
+
+      --user-bg: #2f2f2f;
+      --code-bg: #0d1117;
+
+      --sidebar-width: 270px;
+      --content-width: 900px;
+
+      --radius: 14px;
+    }
+
     * {
       box-sizing: border-box;
     }
 
-    html,
-    body {
-      width: 100%;
+    html {
       height: 100%;
-      margin: 0;
+      scroll-behavior: smooth;
     }
 
     body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+
+      background: var(--main);
+      color: var(--text);
+
       font-family:
-        Inter,
-        ui-sans-serif,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
@@ -53,112 +88,156 @@
         Helvetica,
         Arial,
         sans-serif;
-      background: #ffffff;
-      color: #1f2937;
-      overflow: hidden;
+
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     button,
-    textarea {
+    textarea,
+    input {
       font: inherit;
     }
 
     button {
       border: 0;
-      cursor: pointer;
     }
+
+    button:focus-visible,
+    textarea:focus-visible,
+    input:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* =========================================================
+       APP
+       ========================================================= */
 
     .app {
       display: flex;
       width: 100%;
       height: 100vh;
-      min-height: 100vh;
-      background: #ffffff;
+      overflow: hidden;
     }
 
-    /* =========================
+    /* =========================================================
        SIDEBAR
-    ========================= */
+       ========================================================= */
 
     .sidebar {
-      width: 270px;
-      height: 100vh;
-      flex-shrink: 0;
+      position: relative;
+
       display: flex;
       flex-direction: column;
-      background: #f7f7f8;
-      border-right: 1px solid #e5e7eb;
-      overflow: hidden;
+
+      width: var(--sidebar-width);
+      min-width: var(--sidebar-width);
+      height: 100%;
+
+      background: var(--sidebar);
+
+      z-index: 100;
+    }
+
+    .sidebar-header {
+      padding: 12px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 11px;
-      padding: 18px 16px 15px;
+      gap: 10px;
+
+      padding: 8px 8px 14px;
+
+      font-size: 15px;
+      font-weight: 600;
+
+      user-select: none;
     }
 
     .brand-logo {
-      width: 34px;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      background: #111827;
-      color: #ffffff;
-      font-size: 16px;
+      display: grid;
+      place-items: center;
+
+      width: 30px;
+      height: 30px;
+
+      border-radius: 9px;
+
+      background: linear-gradient(
+        135deg,
+        #10a37f,
+        #087f63
+      );
+
+      color: white;
+
+      font-size: 15px;
       font-weight: 800;
     }
 
-    .brand-text {
-      min-width: 0;
-    }
-
     .brand-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: #111827;
-      line-height: 1.2;
-    }
-
-    .brand-subtitle {
-      margin-top: 3px;
-      font-size: 11px;
-      color: #6b7280;
+      flex: 1;
     }
 
     .new-chat {
-      margin: 3px 12px 15px;
-      padding: 11px 13px;
       display: flex;
       align-items: center;
       gap: 10px;
-      border: 1px solid #d1d5db;
+
+      width: 100%;
+      padding: 11px 12px;
+
       border-radius: 9px;
-      background: #ffffff;
-      color: #1f2937;
-      font-size: 13px;
-      font-weight: 600;
+
+      background: transparent;
+      color: var(--text);
+
+      cursor: pointer;
       text-align: left;
-      transition: 0.18s ease;
+
+      transition:
+        background .15s ease,
+        transform .15s ease;
     }
 
     .new-chat:hover {
-      background: #f3f4f6;
-      border-color: #bfc3ca;
+      background: var(--sidebar-hover);
+    }
+
+    .new-chat:active {
+      transform: scale(.99);
     }
 
     .new-chat-icon {
-      font-size: 18px;
+      font-size: 19px;
       line-height: 1;
-      font-weight: 400;
     }
+
+    .new-chat span:last-child {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* =========================================================
+       HISTORY
+       ========================================================= */
 
     .history {
       flex: 1;
-      padding: 0 8px 15px;
+
       overflow-y: auto;
+
+      padding: 4px 8px 15px;
+
+      scrollbar-width: thin;
+      scrollbar-color: #444 transparent;
     }
 
     .history::-webkit-scrollbar {
@@ -166,7 +245,7 @@
     }
 
     .history::-webkit-scrollbar-thumb {
-      background: #d1d5db;
+      background: #444;
       border-radius: 10px;
     }
 
@@ -175,720 +254,1755 @@
     }
 
     .history-title {
-      padding: 0 9px 7px;
-      color: #9ca3af;
-      font-size: 10px;
-      font-weight: 700;
+      padding: 7px 10px;
+
+      color: #8e8e8e;
+
+      font-size: 11px;
+      font-weight: 600;
+
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: .05em;
     }
 
     .history-item {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
       width: 100%;
-      display: block;
-      padding: 9px 10px;
+      min-height: 38px;
+
       margin-bottom: 2px;
-      border-radius: 7px;
+
+      border-radius: 8px;
+
       background: transparent;
-      color: #374151;
-      font-size: 12px;
-      line-height: 1.4;
+      color: #d6d6d6;
+
+      cursor: pointer;
       text-align: left;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      transition: 0.15s ease;
+
+      transition:
+        background .15s ease,
+        color .15s ease;
     }
 
     .history-item:hover {
-      background: #ececee;
+      background: var(--sidebar-hover);
+      color: white;
     }
 
     .history-item.active {
-      background: #e5e7eb;
-      color: #111827;
+      background: #2a2a2a;
+      color: white;
+    }
+
+    .history-item-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      min-width: 0;
+
+      flex: 1;
+
+      padding: 9px 9px;
+    }
+
+    .history-item-icon {
+      flex: 0 0 auto;
+
+      width: 17px;
+
+      color: #8f8f8f;
+
+      font-size: 13px;
+    }
+
+    .history-item-title {
+      min-width: 0;
+
+      overflow: hidden;
+
+      color: inherit;
+
+      font-size: 13px;
+      line-height: 1.35;
+
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .history-menu-btn {
+      display: grid;
+      place-items: center;
+
+      width: 31px;
+      height: 31px;
+
+      margin-right: 4px;
+
+      border-radius: 7px;
+
+      background: transparent;
+      color: #aaa;
+
+      cursor: pointer;
+
+      opacity: 0;
+
+      transition:
+        opacity .15s ease,
+        background .15s ease;
+    }
+
+    .history-item:hover .history-menu-btn,
+    .history-menu-btn:focus-visible {
+      opacity: 1;
+    }
+
+    .history-menu-btn:hover {
+      background: #444;
+      color: white;
+    }
+
+    .history-empty {
+      padding: 25px 15px;
+
+      color: #777;
+
+      font-size: 13px;
+      line-height: 1.5;
+
+      text-align: center;
+    }
+
+    /* =========================================================
+       SIDEBAR FOOTER
+       ========================================================= */
+
+    .sidebar-footer {
+      padding: 10px 12px 14px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .sidebar-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      padding: 9px;
+
+      color: #aaa;
+
+      font-size: 12px;
+    }
+
+    .sidebar-info-logo {
+      display: grid;
+      place-items: center;
+
+      width: 28px;
+      height: 28px;
+
+      border-radius: 50%;
+
+      background: #303030;
+
+      color: #ccc;
+    }
+
+    .sidebar-info-text {
+      min-width: 0;
+    }
+
+    .sidebar-info-text strong {
+      display: block;
+
+      color: #ddd;
+
+      font-size: 12px;
       font-weight: 600;
     }
 
-    .sidebar-footer {
-      padding: 13px 15px;
-      border-top: 1px solid #e5e7eb;
-      color: #9ca3af;
-      font-size: 10px;
-      line-height: 1.5;
-    }
+    .sidebar-info-text span {
+      display: block;
 
-    /* =========================
-       MAIN
-    ========================= */
+      margin-top: 2px;
 
-    .main {
-      flex: 1;
-      min-width: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background: #ffffff;
-    }
+      color: #777;
 
-    .topbar {
-      height: 58px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 18px;
-      border-bottom: 1px solid #f0f0f1;
-      background: rgba(255, 255, 255, 0.96);
-    }
-
-    .topbar-left {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
-
-    .menu {
-      width: 34px;
-      height: 34px;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      border-radius: 7px;
-      background: transparent;
-      color: #4b5563;
-      font-size: 18px;
-    }
-
-    .menu:hover {
-      background: #f3f4f6;
-    }
-
-    .model {
-      color: #111827;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .status {
-      color: #6b7280;
       font-size: 11px;
     }
 
-    .status::first-letter {
-      color: #16a34a;
-    }
+    /* =========================================================
+       MAIN
+       ========================================================= */
 
-    .top-actions {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .top-action {
-      width: 34px;
-      height: 34px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 7px;
-      background: transparent;
-      color: #6b7280;
-      font-size: 16px;
-    }
-
-    .top-action:hover {
-      background: #f3f4f6;
-      color: #111827;
-    }
-
-    /* =========================
-       CHAT
-    ========================= */
-
-    .chat-wrap {
+    .main {
       position: relative;
-      flex: 1;
-      min-height: 0;
+
       display: flex;
       flex-direction: column;
-    }
 
-    .messages {
+      min-width: 0;
+      height: 100%;
       flex: 1;
-      min-height: 0;
-      width: 100%;
+
+      background: var(--main);
+    }
+
+    /* =========================================================
+       TOPBAR
+       ========================================================= */
+
+    .topbar {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      height: 56px;
+      min-height: 56px;
+
+      padding: 0 20px;
+
+      border-bottom: 1px solid transparent;
+
+      background: rgba(33,33,33,.9);
+
+      z-index: 20;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      place-items: center;
+
+      width: 38px;
+      height: 38px;
+
+      margin-right: 6px;
+
+      border-radius: 8px;
+
+      background: transparent;
+      color: #ddd;
+
+      cursor: pointer;
+
+      font-size: 21px;
+    }
+
+    .mobile-menu-btn:hover {
+      background: #303030;
+    }
+
+    .topbar-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      min-width: 0;
+
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .topbar-title-name {
+      overflow: hidden;
+
+      max-width: 480px;
+
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .topbar-badge {
+      padding: 3px 7px;
+
+      border-radius: 5px;
+
+      background: rgba(16,163,127,.14);
+      color: #45cda9;
+
+      font-size: 9px;
+      font-weight: 700;
+
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       CHAT AREA
+       ========================================================= */
+
+    .chat-scroll {
+      flex: 1;
+
       overflow-y: auto;
-      padding: 32px 20px 25px;
-      scroll-behavior: smooth;
+
+      scrollbar-width: thin;
+      scrollbar-color: #444 transparent;
     }
 
-    .messages::-webkit-scrollbar {
-      width: 6px;
+    .chat-scroll::-webkit-scrollbar {
+      width: 7px;
     }
 
-    .messages::-webkit-scrollbar-thumb {
-      background: #d1d5db;
+    .chat-scroll::-webkit-scrollbar-thumb {
+      background: #444;
       border-radius: 10px;
     }
 
-    /* =========================
+    .chat-container {
+      width: min(
+        var(--content-width),
+        calc(100% - 40px)
+      );
+
+      margin: 0 auto;
+
+      padding: 25px 0 180px;
+    }
+
+    /* =========================================================
        WELCOME
-    ========================= */
+       ========================================================= */
 
     .welcome {
-      width: min(760px, 100%);
-      margin: 8vh auto 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      min-height: calc(100vh - 190px);
+
+      padding-top: 18vh;
+
       text-align: center;
     }
 
     .welcome-logo {
-      width: 52px;
-      height: 52px;
-      margin: 0 auto 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 15px;
-      background: #111827;
-      color: #ffffff;
-      font-size: 22px;
+      display: grid;
+      place-items: center;
+
+      width: 56px;
+      height: 56px;
+
+      margin-bottom: 20px;
+
+      border-radius: 16px;
+
+      background: linear-gradient(
+        135deg,
+        #10a37f,
+        #087f63
+      );
+
+      color: white;
+
+      font-size: 25px;
       font-weight: 800;
+
+      box-shadow:
+        0 12px 40px rgba(16,163,127,.15);
     }
 
     .welcome h1 {
-      margin: 0;
-      color: #111827;
-      font-size: clamp(25px, 4vw, 34px);
-      font-weight: 700;
-      letter-spacing: -0.025em;
+      margin: 0 0 10px;
+
+      color: #f5f5f5;
+
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 600;
+      letter-spacing: -.03em;
     }
 
     .welcome p {
-      max-width: 570px;
-      margin: 12px auto 0;
-      color: #6b7280;
-      font-size: 14px;
-      line-height: 1.7;
+      max-width: 620px;
+
+      margin: 0;
+
+      color: #999;
+
+      font-size: 15px;
+      line-height: 1.6;
     }
 
     .prompt-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 9px;
-      max-width: 620px;
-      margin: 28px auto 0;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      width: min(700px, 100%);
+
+      gap: 10px;
+
+      margin-top: 34px;
     }
 
-    .prompt {
-      padding: 13px 14px;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      background: #ffffff;
-      color: #374151;
-      font-size: 12px;
+    .prompt-btn {
+      display: block;
+
+      min-height: 72px;
+
+      padding: 15px;
+
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+
+      background: #2a2a2a;
+      color: #ddd;
+
+      cursor: pointer;
+
       text-align: left;
-      line-height: 1.45;
-      transition: 0.18s ease;
+
+      transition:
+        background .15s ease,
+        border-color .15s ease,
+        transform .15s ease;
     }
 
-    .prompt:hover {
-      border-color: #c9cdd3;
-      background: #fafafa;
+    .prompt-btn:hover {
+      background: #333;
+      border-color: rgba(255,255,255,.14);
+
       transform: translateY(-1px);
     }
 
-    /* =========================
+    .prompt-btn strong {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #eee;
+
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .prompt-btn span {
+      display: block;
+
+      color: #888;
+
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    /* =========================================================
        MESSAGE
-    ========================= */
+       ========================================================= */
 
     .message {
-      width: min(780px, 100%);
-      margin: 0 auto 22px;
       display: flex;
-      line-height: 1.7;
-      font-size: 14px;
+
+      width: 100%;
+
+      margin-bottom: 26px;
     }
 
-    .message p {
-      margin: 0;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-
-    .user-message {
+    .message.user {
       justify-content: flex-end;
     }
 
-    .user-message p {
-      max-width: 76%;
-      padding: 10px 14px;
-      border-radius: 15px 15px 4px 15px;
-      background: #f1f1f1;
-      color: #1f2937;
+    .message-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+
+      width: min(100%, 820px);
     }
 
-    .assistant-message {
-      justify-content: flex-start;
+    .message.user .message-inner {
+      justify-content: flex-end;
     }
 
-    .assistant-message p {
-      max-width: 86%;
-      color: #1f2937;
+    .avatar {
+      display: grid;
+      place-items: center;
+
+      flex: 0 0 auto;
+
+      width: 30px;
+      height: 30px;
+
+      border-radius: 8px;
+
+      font-size: 13px;
+      font-weight: 700;
     }
 
-    /* =========================
+    .assistant-avatar {
+      background: linear-gradient(
+        135deg,
+        #10a37f,
+        #087f63
+      );
+
+      color: white;
+    }
+
+    .user-avatar {
+      order: 2;
+
+      background: #444;
+
+      color: #ddd;
+    }
+
+    .message-body {
+      min-width: 0;
+      max-width: 760px;
+
+      color: #ececec;
+
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .message.user .message-body {
+      padding: 11px 15px;
+
+      border-radius: 18px;
+
+      background: var(--user-bg);
+
+      color: #f1f1f1;
+
+      line-height: 1.55;
+    }
+
+    .message-content {
+      min-width: 0;
+    }
+
+    /* =========================================================
+       MARKDOWN
+       ========================================================= */
+
+    .markdown p {
+      margin: 0 0 14px;
+    }
+
+    .markdown p:last-child {
+      margin-bottom: 0;
+    }
+
+    .markdown h1,
+    .markdown h2,
+    .markdown h3,
+    .markdown h4 {
+      margin: 22px 0 10px;
+
+      color: #f4f4f4;
+
+      line-height: 1.3;
+    }
+
+    .markdown h1 {
+      font-size: 25px;
+    }
+
+    .markdown h2 {
+      font-size: 21px;
+    }
+
+    .markdown h3 {
+      font-size: 18px;
+    }
+
+    .markdown h4 {
+      font-size: 16px;
+    }
+
+    .markdown ul,
+    .markdown ol {
+      margin: 0 0 15px;
+      padding-left: 25px;
+    }
+
+    .markdown li {
+      margin: 5px 0;
+    }
+
+    .markdown blockquote {
+      margin: 15px 0;
+      padding: 8px 15px;
+
+      border-left: 3px solid #666;
+
+      color: #aaa;
+    }
+
+    .markdown a {
+      color: #62b5ff;
+
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .markdown strong {
+      color: #fff;
+      font-weight: 650;
+    }
+
+    .markdown hr {
+      margin: 22px 0;
+
+      border: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .markdown table {
+      width: 100%;
+
+      margin: 18px 0;
+
+      border-collapse: collapse;
+
+      overflow: hidden;
+
+      font-size: 14px;
+    }
+
+    .markdown th,
+    .markdown td {
+      padding: 9px 11px;
+
+      border: 1px solid #444;
+
+      text-align: left;
+    }
+
+    .markdown th {
+      background: #303030;
+      color: white;
+    }
+
+    .markdown code:not(pre code) {
+      padding: 2px 5px;
+
+      border-radius: 5px;
+
+      background: rgba(255,255,255,.08);
+
+      color: #f1c7ff;
+
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+
+      font-size: .9em;
+    }
+
+    /* =========================================================
+       CODE BLOCK
+       ========================================================= */
+
+    .code-wrapper {
+      position: relative;
+
+      margin: 17px 0;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 10px;
+
+      background: var(--code-bg);
+    }
+
+    .code-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      min-height: 38px;
+
+      padding: 0 10px;
+
+      border-bottom: 1px solid rgba(255,255,255,.07);
+
+      background: #161b22;
+    }
+
+    .code-language {
+      color: #888;
+
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        monospace;
+
+      font-size: 11px;
+    }
+
+    .copy-code-btn,
+    .copy-message-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+
+      padding: 5px 8px;
+
+      border-radius: 6px;
+
+      background: transparent;
+      color: #999;
+
+      cursor: pointer;
+
+      font-size: 11px;
+    }
+
+    .copy-code-btn:hover,
+    .copy-message-btn:hover {
+      background: #303030;
+      color: #eee;
+    }
+
+    .code-wrapper pre {
+      margin: 0;
+
+      overflow-x: auto;
+
+      padding: 15px;
+
+      scrollbar-width: thin;
+    }
+
+    .code-wrapper pre::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .code-wrapper pre::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 10px;
+    }
+
+    .code-wrapper pre code {
+      display: block;
+
+      padding: 0;
+
+      background: transparent;
+
+      color: #e6edf3;
+
+      font-family:
+        ui-monospace,
+        SFMono-Regular,
+        Menlo,
+        Monaco,
+        Consolas,
+        "Liberation Mono",
+        monospace;
+
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* =========================================================
+       MESSAGE ACTIONS
+       ========================================================= */
+
+    .message-actions {
+      display: flex;
+      align-items: center;
+
+      gap: 4px;
+
+      margin-top: 7px;
+    }
+
+    .message-actions button {
+      display: inline-flex;
+      align-items: center;
+
+      padding: 4px 7px;
+
+      border-radius: 6px;
+
+      background: transparent;
+      color: #777;
+
+      cursor: pointer;
+
+      font-size: 11px;
+    }
+
+    .message-actions button:hover {
+      background: #303030;
+      color: #ccc;
+    }
+
+    .message.user .message-actions {
+      justify-content: flex-end;
+    }
+
+    /* =========================================================
        TYPING
-    ========================= */
-
-    .typing-wrapper {
-      width: min(780px, calc(100% - 40px));
-      margin: 0 auto;
-      min-height: 24px;
-      visibility: hidden;
-      opacity: 0;
-      transition: 0.15s ease;
-    }
-
-    .typing-wrapper.visible {
-      visibility: visible;
-      opacity: 1;
-    }
+       ========================================================= */
 
     .typing {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 5px;
+
       padding: 4px 0;
     }
 
     .typing span {
-      width: 5px;
-      height: 5px;
+      width: 6px;
+      height: 6px;
+
       border-radius: 50%;
-      background: #9ca3af;
+
+      background: #999;
+
       animation: typing 1.2s infinite ease-in-out;
     }
 
     .typing span:nth-child(2) {
-      animation-delay: 0.15s;
+      animation-delay: .15s;
     }
 
     .typing span:nth-child(3) {
-      animation-delay: 0.3s;
+      animation-delay: .3s;
     }
 
     @keyframes typing {
       0%,
       60%,
       100% {
+        opacity: .35;
         transform: translateY(0);
-        opacity: 0.4;
       }
 
       30% {
-        transform: translateY(-4px);
         opacity: 1;
+        transform: translateY(-3px);
       }
     }
 
-    /* =========================
+    /* =========================================================
        COMPOSER
-    ========================= */
+       ========================================================= */
 
     .composer-area {
-      flex-shrink: 0;
-      width: min(780px, calc(100% - 40px));
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      padding: 18px 20px 20px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(33,33,33,0),
+          rgba(33,33,33,.9) 28%,
+          var(--main) 65%
+        );
+
+      z-index: 15;
+    }
+
+    .composer-wrap {
+      width: min(
+        var(--content-width),
+        calc(100% - 0px)
+      );
+
       margin: 0 auto;
-      padding: 8px 0 18px;
     }
 
     .composer {
       display: flex;
       align-items: flex-end;
-      gap: 8px;
-      padding: 8px 8px 8px 14px;
-      border: 1px solid #d9d9dc;
-      border-radius: 14px;
-      background: #ffffff;
+      gap: 9px;
+
+      min-height: 56px;
+
+      padding: 8px 8px 8px 15px;
+
+      border: 1px solid #444;
+      border-radius: 17px;
+
+      background: #2f2f2f;
+
       box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.03),
-        0 0 0 1px rgba(0, 0, 0, 0.01);
-      transition: 0.18s ease;
+        0 8px 30px rgba(0,0,0,.16);
+
+      transition:
+        border-color .15s ease,
+        box-shadow .15s ease;
     }
 
     .composer:focus-within {
-      border-color: #bfc3c9;
+      border-color: #666;
+
       box-shadow:
-        0 3px 12px rgba(0, 0, 0, 0.04),
-        0 0 0 2px rgba(17, 24, 39, 0.03);
+        0 8px 35px rgba(0,0,0,.25);
     }
 
-    #user-input {
+    #message-input {
       flex: 1;
-      min-width: 0;
-      max-height: 180px;
-      min-height: 26px;
-      padding: 5px 0;
-      resize: none;
+
+      width: 100%;
+      min-height: 38px;
+      max-height: 200px;
+
+      padding: 8px 0;
+
       border: 0;
-      outline: none;
-      background: transparent;
-      color: #111827;
-      font-size: 14px;
-      line-height: 1.5;
+      outline: 0;
+
+      resize: none;
+
       overflow-y: auto;
+
+      background: transparent;
+      color: #eee;
+
+      font-size: 15px;
+      line-height: 1.5;
     }
 
-    #user-input::placeholder {
-      color: #9ca3af;
+    #message-input::placeholder {
+      color: #858585;
     }
 
-    .send {
-      width: 34px;
-      height: 34px;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 9px;
-      background: #111827;
-      color: #ffffff;
-      font-size: 19px;
-      font-weight: 500;
-      transition: 0.18s ease;
+    .send-btn {
+      display: grid;
+      place-items: center;
+
+      flex: 0 0 auto;
+
+      width: 38px;
+      height: 38px;
+
+      border-radius: 10px;
+
+      background: #eee;
+      color: #222;
+
+      cursor: pointer;
+
+      transition:
+        background .15s ease,
+        transform .15s ease,
+        opacity .15s ease;
     }
 
-    .send:hover {
-      background: #000000;
+    .send-btn:hover:not(:disabled) {
+      background: white;
+
       transform: translateY(-1px);
     }
 
-    .send:disabled {
-      opacity: 0.45;
+    .send-btn:disabled {
+      opacity: .35;
       cursor: not-allowed;
-      transform: none;
     }
 
-    .composer-note {
-      margin-top: 7px;
-      color: #9ca3af;
+    .send-icon {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .stop-icon {
+      display: none;
+
+      width: 12px;
+      height: 12px;
+
+      border-radius: 3px;
+
+      background: #222;
+    }
+
+    .composer-hint {
+      margin-top: 8px;
+
+      color: #777;
+
       font-size: 10px;
+
       text-align: center;
     }
 
-    /* =========================
-       SEO
-    ========================= */
+    /* =========================================================
+       DROPDOWN
+       ========================================================= */
 
-    .seo {
+    .chat-menu {
+      position: fixed;
+
+      width: 150px;
+
+      padding: 5px;
+
+      border: 1px solid #444;
+      border-radius: 10px;
+
+      background: #2b2b2b;
+
+      box-shadow:
+        0 12px 35px rgba(0,0,0,.4);
+
+      z-index: 500;
+    }
+
+    .chat-menu[hidden] {
       display: none;
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
+    .chat-menu button {
+      display: flex;
+      align-items: center;
+      gap: 9px;
 
-    @media (max-width: 760px) {
+      width: 100%;
+
+      padding: 9px 10px;
+
+      border-radius: 7px;
+
+      background: transparent;
+      color: #ddd;
+
+      cursor: pointer;
+
+      text-align: left;
+
+      font-size: 12px;
+    }
+
+    .chat-menu button:hover {
+      background: #3a3a3a;
+    }
+
+    .chat-menu button.delete:hover {
+      background: rgba(239,68,68,.12);
+      color: #ff7777;
+    }
+
+    /* =========================================================
+       MOBILE OVERLAY
+       ========================================================= */
+
+    .sidebar-overlay {
+      display: none;
+
+      position: fixed;
+      inset: 0;
+
+      background: rgba(0,0,0,.55);
+
+      z-index: 90;
+    }
+
+    /* =========================================================
+       MODAL
+       ========================================================= */
+
+    .modal-backdrop {
+      display: none;
+
+      position: fixed;
+      inset: 0;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      background: rgba(0,0,0,.6);
+
+      z-index: 1000;
+    }
+
+    .modal-backdrop.show {
+      display: flex;
+    }
+
+    .modal {
+      width: min(400px, 100%);
+
+      padding: 20px;
+
+      border: 1px solid #444;
+      border-radius: 14px;
+
+      background: #2b2b2b;
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,.5);
+    }
+
+    .modal h3 {
+      margin: 0 0 7px;
+
+      color: #fff;
+
+      font-size: 17px;
+    }
+
+    .modal p {
+      margin: 0 0 16px;
+
+      color: #999;
+
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .modal input {
+      width: 100%;
+
+      padding: 11px 12px;
+
+      border: 1px solid #555;
+      border-radius: 9px;
+
+      outline: none;
+
+      background: #202020;
+      color: white;
+
+      font-size: 14px;
+    }
+
+    .modal input:focus {
+      border-color: #777;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+
+      gap: 8px;
+
+      margin-top: 16px;
+    }
+
+    .modal-actions button {
+      padding: 9px 13px;
+
+      border-radius: 8px;
+
+      cursor: pointer;
+
+      font-size: 13px;
+    }
+
+    .modal-cancel {
+      background: #3a3a3a;
+      color: #ddd;
+    }
+
+    .modal-save {
+      background: #eee;
+      color: #222;
+    }
+
+    .modal-delete {
+      background: #b91c1c;
+      color: white;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 800px) {
+
       .sidebar {
         position: fixed;
-        z-index: 100;
+
         left: 0;
         top: 0;
-        width: 280px;
+        bottom: 0;
+
+        width: min(290px, 85vw);
+        min-width: 0;
+
         transform: translateX(-100%);
-        transition: transform 0.2s ease;
-        box-shadow: 8px 0 25px rgba(0, 0, 0, 0.08);
+
+        transition: transform .22s ease;
+
+        box-shadow:
+          15px 0 45px rgba(0,0,0,.3);
+
+        z-index: 100;
       }
 
       .sidebar.open {
         transform: translateX(0);
       }
 
-      .menu {
-        display: flex;
+      .sidebar-overlay {
+        display: block;
+
+        opacity: 0;
+        pointer-events: none;
+
+        transition: opacity .22s ease;
+
+        z-index: 90;
+      }
+
+      .sidebar-overlay.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .mobile-menu-btn {
+        display: grid;
       }
 
       .topbar {
         padding: 0 12px;
       }
 
-      .messages {
-        padding: 22px 14px 20px;
+      .chat-container {
+        width: min(
+          100% - 28px,
+          var(--content-width)
+        );
+
+        padding-top: 15px;
+      }
+
+      .message-inner {
+        gap: 10px;
+      }
+
+      .message-body {
+        font-size: 14px;
+      }
+
+      .composer-area {
+        padding:
+          12px 10px
+          calc(12px + env(safe-area-inset-bottom))
+          10px;
+      }
+
+      .composer-hint {
+        display: none;
+      }
+
+      .prompt-grid {
+        grid-template-columns: 1fr;
       }
 
       .welcome {
-        margin-top: 8vh;
+        min-height: calc(100vh - 170px);
+
+        padding-top: 11vh;
+      }
+
+      .welcome p {
+        font-size: 14px;
+      }
+
+      .message.user .message-inner {
+        max-width: 90%;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .topbar-title-name {
+        max-width: 220px;
+      }
+
+      .topbar-badge {
+        display: none;
+      }
+
+      .chat-container {
+        width: calc(100% - 20px);
+      }
+
+      .avatar {
+        width: 28px;
+        height: 28px;
+      }
+
+      .message-body {
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .message.user .message-body {
+        padding: 10px 13px;
+      }
+
+      .welcome-logo {
+        width: 50px;
+        height: 50px;
       }
 
       .welcome h1 {
-        font-size: 25px;
+        font-size: 27px;
       }
 
       .welcome p {
         font-size: 13px;
       }
 
-      .prompt-grid {
-        grid-template-columns: 1fr;
-        margin-top: 22px;
-      }
-
-      .message {
-        margin-bottom: 18px;
-        font-size: 14px;
-      }
-
-      .user-message p {
-        max-width: 86%;
-      }
-
-      .assistant-message p {
-        max-width: 95%;
-      }
-
-      .typing-wrapper,
-      .composer-area {
-        width: calc(100% - 28px);
-      }
-
-      .composer-area {
-        padding-bottom: 12px;
-      }
-    }
-
-    @media (max-width: 420px) {
-      .brand {
-        padding-top: 14px;
-      }
-
-      .welcome-logo {
-        width: 46px;
-        height: 46px;
-        font-size: 19px;
-      }
-
-      .welcome h1 {
-        font-size: 23px;
-      }
-
-      .welcome p {
-        font-size: 12px;
+      .prompt-btn {
+        min-height: 65px;
       }
 
       .composer {
-        border-radius: 13px;
+        border-radius: 15px;
+      }
+
+      #message-input {
+        font-size: 14px;
+      }
+    }
+
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "AI Mr Ferdy",
-    "url": "https://chat.aimrferdy.net/",
-    "description": "Chat AI online gratis berbahasa Indonesia untuk membantu menjawab pertanyaan, membuat tulisan, mencari ide, coding, dan berbagai kebutuhan lainnya.",
-    "applicationCategory": "Artificial Intelligence",
-    "operatingSystem": "Web Browser",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "IDR"
-    }
-  }
-  </script>
+  <!-- Markdown -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.7/marked.min.js"
+    defer
+  ></script>
+
+  <!-- DOMPurify -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.6/purify.min.js"
+    defer
+  ></script>
+
+  <!-- Highlight.js -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"
+    defer
+  ></script>
+
+  <script
+    src="/chat.js"
+    defer
+  ></script>
 </head>
 
 <body>
 
   <div class="app">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar" id="sidebar">
+    <!-- =======================================================
+         SIDEBAR
+         ======================================================== -->
 
-      <div class="brand">
-        <div class="brand-logo">F</div>
+    <aside
+      id="sidebar"
+      class="sidebar"
+      aria-label="Riwayat percakapan"
+    >
 
-        <div class="brand-text">
-          <div class="brand-name">AI Mr Ferdy</div>
-          <div class="brand-subtitle">Asisten AI Indonesia</div>
+      <div class="sidebar-header">
+
+        <div class="brand">
+          <div class="brand-logo">
+            F
+          </div>
+
+          <div class="brand-name">
+            AI Mr Ferdy
+          </div>
         </div>
+
+        <button
+          id="new-chat-btn"
+          class="new-chat"
+          type="button"
+          aria-label="Mulai chat baru"
+        >
+          <span class="new-chat-icon">＋</span>
+          <span>Chat baru</span>
+        </button>
+
       </div>
 
-      <button class="new-chat" id="new-chat" type="button">
-        <span class="new-chat-icon">＋</span>
-        <span>Chat Baru</span>
-      </button>
-
-      <div class="history" id="history"></div>
+      <div
+        id="history"
+        class="history"
+      ></div>
 
       <div class="sidebar-footer">
-        AI Mr Ferdy · Chat AI Online<br />
-        Percakapan disimpan di browser Anda.
+
+        <div class="sidebar-info">
+          <div class="sidebar-info-logo">
+            ✦
+          </div>
+
+          <div class="sidebar-info-text">
+            <strong>AI Mr Ferdy</strong>
+            <span>AI Chat Bahasa Indonesia</span>
+          </div>
+        </div>
+
       </div>
 
     </aside>
 
-    <!-- MAIN -->
+    <div
+      id="sidebar-overlay"
+      class="sidebar-overlay"
+    ></div>
+
+
+    <!-- =======================================================
+         MAIN
+         ======================================================== -->
+
     <main class="main">
 
       <!-- TOPBAR -->
+
       <header class="topbar">
 
-        <div class="topbar-left">
+        <button
+          id="mobile-menu-btn"
+          class="mobile-menu-btn"
+          type="button"
+          aria-label="Buka menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
 
-          <button
-            class="menu"
-            id="menu"
-            type="button"
-            aria-label="Buka menu"
+        <div class="topbar-title">
+          <span
+            id="topbar-title"
+            class="topbar-title-name"
           >
-            ☰
-          </button>
+            Chat baru
+          </span>
 
-          <span class="model">AI Mr Ferdy</span>
-          <span class="status">● Online</span>
-
-        </div>
-
-        <div class="top-actions">
-
-          <button
-            class="top-action"
-            id="clear"
-            type="button"
-            title="Hapus percakapan"
-            aria-label="Hapus percakapan"
-          >
-            ⌫
-          </button>
-
+          <span class="topbar-badge">
+            AI
+          </span>
         </div>
 
       </header>
 
+
       <!-- CHAT -->
-      <section class="chat-wrap">
 
-        <div class="messages" id="chat-messages">
+      <div
+        id="chat-scroll"
+        class="chat-scroll"
+      >
 
-          <div class="welcome" id="welcome-screen">
+        <div
+          id="chat-container"
+          class="chat-container"
+        >
 
-            <div class="welcome-logo">F</div>
+          <!-- WELCOME -->
 
-            <h1>Ada yang bisa saya bantu?</h1>
+          <section
+            id="welcome"
+            class="welcome"
+          >
+
+            <div class="welcome-logo">
+              F
+            </div>
+
+            <h1>
+              Ada yang bisa saya bantu?
+            </h1>
 
             <p>
-              Tanya apa saja ke AI Mr Ferdy. Mulai dari mencari ide,
-              menulis artikel, coding, belajar, sampai membantu berbagai
-              pekerjaan sehari-hari.
+              Saya AI Mr Ferdy. Tanya apa saja dalam Bahasa Indonesia,
+              mulai dari coding, SEO, ide konten, sampai pekerjaan sehari-hari.
             </p>
 
             <div class="prompt-grid">
 
               <button
-                class="prompt"
+                class="prompt-btn"
                 type="button"
-                data-prompt="Bantu saya membuat ide konten yang menarik untuk website."
+                data-prompt="Bantu saya membuat website sederhana dengan HTML, CSS, dan JavaScript."
               >
-                💡 Berikan saya ide konten
+                <strong>💻 Bantu coding</strong>
+                <span>
+                  Buat atau perbaiki kode website
+                </span>
               </button>
 
               <button
-                class="prompt"
+                class="prompt-btn"
                 type="button"
-                data-prompt="Bantu saya membuat artikel SEO yang natural dan mudah dibaca."
+                data-prompt="Buatkan ide artikel SEO yang menarik dan berpotensi mendapatkan traffic dari Google."
               >
-                ✍️ Buat artikel SEO
+                <strong>🔎 Ide SEO</strong>
+                <span>
+                  Cari ide konten yang SEO-friendly
+                </span>
               </button>
 
               <button
-                class="prompt"
+                class="prompt-btn"
                 type="button"
-                data-prompt="Bantu saya membuat atau memperbaiki kode JavaScript."
+                data-prompt="Buatkan 10 ide konten TikTok yang menarik untuk niche teknologi."
               >
-                💻 Bantu coding
+                <strong>💡 Ide konten</strong>
+                <span>
+                  Cari ide konten yang bisa dikembangkan
+                </span>
               </button>
 
               <button
-                class="prompt"
+                class="prompt-btn"
                 type="button"
-                data-prompt="Jelaskan sebuah topik dengan bahasa Indonesia yang mudah dipahami."
+                data-prompt="Jelaskan konsep JavaScript async dan await dengan contoh sederhana dalam Bahasa Indonesia."
               >
-                📚 Jelaskan sesuatu
+                <strong>📚 Belajar</strong>
+                <span>
+                  Jelaskan sesuatu dengan bahasa sederhana
+                </span>
               </button>
 
             </div>
 
-          </div>
+          </section>
+
+
+          <!-- MESSAGES -->
+
+          <div
+            id="messages"
+            aria-live="polite"
+          ></div>
 
         </div>
 
-        <!-- TYPING -->
-        <div class="typing-wrapper" id="typing-indicator">
-          <div class="typing">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
+      </div>
 
-        <!-- COMPOSER -->
-        <div class="composer-area">
 
-          <div class="composer">
+      <!-- COMPOSER -->
+
+      <div class="composer-area">
+
+        <div class="composer-wrap">
+
+          <form
+            id="composer-form"
+            class="composer"
+          >
 
             <textarea
-              id="user-input"
+              id="message-input"
               rows="1"
-              placeholder="Tanyakan apa saja..."
-              aria-label="Tulis pesan"
+              placeholder="Message AI Mr Ferdy..."
+              autocomplete="off"
+              spellcheck="true"
+              aria-label="Pesan"
             ></textarea>
 
             <button
-              class="send"
-              id="send-button"
-              type="button"
-              title="Kirim pesan"
+              id="send-btn"
+              class="send-btn"
+              type="submit"
               aria-label="Kirim pesan"
+              disabled
             >
-              ↑
+              <span
+                id="send-icon"
+                class="send-icon"
+              >
+                ↑
+              </span>
+
+              <span
+                id="stop-icon"
+                class="stop-icon"
+              ></span>
             </button>
 
-          </div>
+          </form>
 
-          <div class="composer-note">
-            AI Mr Ferdy bisa saja membuat kesalahan. Periksa kembali informasi penting.
+          <div class="composer-hint">
+            AI dapat membuat kesalahan. Periksa informasi penting.
           </div>
 
         </div>
 
-      </section>
-
-      <!-- SEO CONTENT -->
-      <section class="seo">
-
-        <h2>AI Chat Online Gratis Bahasa Indonesia</h2>
-
-        <p>
-          AI Mr Ferdy adalah layanan chat AI online yang dapat digunakan
-          untuk membantu berbagai kebutuhan seperti mencari ide, menulis,
-          belajar, coding, membuat konten, dan pekerjaan sehari-hari.
-        </p>
-
-        <p>
-          Gunakan AI Mr Ferdy sebagai asisten digital untuk mendapatkan
-          jawaban dan bantuan secara cepat langsung melalui browser.
-        </p>
-
-      </section>
+      </div>
 
     </main>
 
   </div>
 
-  <script src="/chat.js"></script>
+
+  <!-- =========================================================
+       CHAT MENU
+       ========================================================== -->
+
+  <div
+    id="chat-menu"
+    class="chat-menu"
+    hidden
+  >
+
+    <button
+      id="menu-rename"
+      type="button"
+    >
+      ✏️
+      <span>Rename</span>
+    </button>
+
+    <button
+      id="menu-delete"
+      class="delete"
+      type="button"
+    >
+      🗑️
+      <span>Hapus chat</span>
+    </button>
+
+  </div>
+
+
+  <!-- =========================================================
+       RENAME MODAL
+       ========================================================== -->
+
+  <div
+    id="rename-modal"
+    class="modal-backdrop"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="rename-title"
+  >
+
+    <div class="modal">
+
+      <h3 id="rename-title">
+        Rename chat
+      </h3>
+
+      <p>
+        Berikan nama baru untuk percakapan ini.
+      </p>
+
+      <input
+        id="rename-input"
+        type="text"
+        maxlength="80"
+        autocomplete="off"
+      />
+
+      <div class="modal-actions">
+
+        <button
+          id="rename-cancel"
+          class="modal-cancel"
+          type="button"
+        >
+          Batal
+        </button>
+
+        <button
+          id="rename-save"
+          class="modal-save"
+          type="button"
+        >
+          Simpan
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       DELETE MODAL
+       ========================================================== -->
+
+  <div
+    id="delete-modal"
+    class="modal-backdrop"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="delete-title"
+  >
+
+    <div class="modal">
+
+      <h3 id="delete-title">
+        Hapus chat?
+      </h3>
+
+      <p>
+        Percakapan ini akan dihapus dari browser kamu.
+        Tindakan ini tidak bisa dibatalkan.
+      </p>
+
+      <div class="modal-actions">
+
+        <button
+          id="delete-cancel"
+          class="modal-cancel"
+          type="button"
+        >
+          Batal
+        </button>
+
+        <button
+          id="delete-confirm"
+          class="modal-delete"
+          type="button"
+        >
+          Hapus
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </body>
 </html>
