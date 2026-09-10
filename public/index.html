@@ -1,115 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <meta
-    name="theme-color"
-    content="#0f172a"
-  />
-
-  <meta
-    name="robots"
-    content="index, follow, max-image-preview:large"
-  />
+  <title>AI Mr Ferdy - Chat AI Bahasa Indonesia</title>
 
   <meta
     name="description"
-    content="AI Mr Ferdy adalah aplikasi chat AI online gratis untuk bertanya, menulis, brainstorming, coding, SEO, membuat ide konten, dan berbagai kebutuhan digital sehari-hari."
-  />
-
-  <link
-    rel="canonical"
-    href="https://chat.aimrferdy.net/"
+    content="AI Mr Ferdy adalah chat AI online gratis untuk membantu menjawab pertanyaan, membuat tulisan, mencari ide, coding, dan berbagai kebutuhan lainnya."
   />
 
   <meta
-    property="og:type"
-    content="website"
+    name="keywords"
+    content="AI chat Indonesia, chat AI gratis, AI Mr Ferdy, chatbot Indonesia, AI online gratis"
   />
 
-  <meta
-    property="og:title"
-    content="AI Mr Ferdy — AI Chat Online Gratis"
-  />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#ffffff" />
 
+  <link rel="canonical" href="https://chat.aimrferdy.net/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI Mr Ferdy - Chat AI Bahasa Indonesia" />
   <meta
     property="og:description"
-    content="Chat dengan AI Mr Ferdy untuk menulis, coding, brainstorming, SEO, membuat konten, dan mencari ide dengan cepat."
+    content="Chat dengan AI Mr Ferdy untuk mendapatkan jawaban, ide, bantuan coding, tulisan, dan berbagai kebutuhan lainnya."
   />
-
-  <meta
-    property="og:url"
-    content="https://chat.aimrferdy.net/"
-  />
-
-  <meta
-    property="og:site_name"
-    content="AI Mr Ferdy"
-  />
-
-  <meta
-    name="twitter:card"
-    content="summary"
-  />
-
-  <meta
-    name="twitter:title"
-    content="AI Mr Ferdy — AI Chat Online Gratis"
-  />
-
-  <meta
-    name="twitter:description"
-    content="Aplikasi chat AI online untuk menulis, coding, SEO, brainstorming, dan berbagai kebutuhan digital."
-  />
-
-  <title>AI Mr Ferdy — AI Chat Online Gratis</title>
+  <meta property="og:url" content="https://chat.aimrferdy.net/" />
+  <meta property="og:site_name" content="AI Mr Ferdy" />
 
   <style>
-
-    /* =====================================================
-       VARIABLES
-    ===================================================== */
-
-    :root {
-      --bg: #f7f7f8;
-      --surface: #ffffff;
-      --surface-2: #f3f4f6;
-
-      --border: #e5e7eb;
-      --border-dark: #d1d5db;
-
-      --text: #171717;
-      --text-soft: #374151;
-      --muted: #6b7280;
-      --muted-light: #9ca3af;
-
-      --brand: #111827;
-      --brand-hover: #1f2937;
-
-      --green: #16a34a;
-
-      --sidebar: #ffffff;
-
-      --shadow:
-        0 10px 35px rgba(15, 23, 42, 0.10);
-
-      --shadow-small:
-        0 3px 12px rgba(15, 23, 42, 0.07);
-
-      --radius: 16px;
-    }
-
-
-    /* =====================================================
-       RESET
-    ===================================================== */
-
     * {
       box-sizing: border-box;
     }
@@ -119,24 +40,22 @@
       width: 100%;
       height: 100%;
       margin: 0;
-      padding: 0;
     }
 
     body {
       font-family:
         Inter,
         ui-sans-serif,
-        system-ui,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
         sans-serif;
-
-      color: var(--text);
-      background: var(--bg);
-
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      background: #ffffff;
+      color: #1f2937;
+      overflow: hidden;
     }
 
     button,
@@ -145,169 +64,101 @@
     }
 
     button {
+      border: 0;
       cursor: pointer;
     }
 
-    a {
-      color: inherit;
-    }
-
-
-    /* =====================================================
-       APP
-    ===================================================== */
-
     .app {
       display: flex;
-
       width: 100%;
       height: 100vh;
-
-      overflow: hidden;
-
-      background: var(--bg);
+      min-height: 100vh;
+      background: #ffffff;
     }
 
-
-    /* =====================================================
+    /* =========================
        SIDEBAR
-    ===================================================== */
+    ========================= */
 
     .sidebar {
-      width: 280px;
-
-      flex: 0 0 280px;
-
+      width: 270px;
+      height: 100vh;
+      flex-shrink: 0;
       display: flex;
       flex-direction: column;
-
-      padding: 14px;
-
-      background: var(--sidebar);
-
-      border-right:
-        1px solid var(--border);
-
-      z-index: 20;
+      background: #f7f7f8;
+      border-right: 1px solid #e5e7eb;
+      overflow: hidden;
     }
-
-
-    /* BRAND */
 
     .brand {
       display: flex;
       align-items: center;
-
-      gap: 10px;
-
-      padding:
-        8px 8px 18px;
+      gap: 11px;
+      padding: 18px 16px 15px;
     }
 
-    .logo {
-      width: 36px;
-      height: 36px;
-
-      flex: 0 0 36px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 11px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #111827,
-          #374151
-        );
-
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background: #111827;
       color: #ffffff;
-
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 800;
-
-      box-shadow:
-        0 5px 15px rgba(15, 23, 42, .14);
     }
 
-    .brand strong {
-      display: block;
+    .brand-text {
+      min-width: 0;
+    }
 
+    .brand-name {
       font-size: 15px;
-      font-weight: 750;
-
-      letter-spacing: -.01em;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.2;
     }
 
-    .brand small {
-      display: block;
-
-      margin-top: 2px;
-
-      color: var(--muted);
-
+    .brand-subtitle {
+      margin-top: 3px;
       font-size: 11px;
+      color: #6b7280;
     }
-
-
-    /* NEW CHAT */
 
     .new-chat {
-      width: 100%;
-
-      border:
-        1px solid var(--border);
-
-      border-radius: 11px;
-
-      padding:
-        10px 12px;
-
-      background: var(--surface);
-
-      color: var(--text);
-
-      text-align: left;
-
+      margin: 3px 12px 15px;
+      padding: 11px 13px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid #d1d5db;
+      border-radius: 9px;
+      background: #ffffff;
+      color: #1f2937;
       font-size: 13px;
-      font-weight: 650;
-
-      box-shadow:
-        0 1px 2px rgba(0,0,0,.03);
-
-      transition:
-        background .15s ease,
-        border-color .15s ease,
-        transform .15s ease;
+      font-weight: 600;
+      text-align: left;
+      transition: 0.18s ease;
     }
 
     .new-chat:hover {
-      background: var(--surface-2);
-
-      border-color:
-        var(--border-dark);
+      background: #f3f4f6;
+      border-color: #bfc3ca;
     }
 
-    .new-chat:active {
-      transform: scale(.99);
+    .new-chat-icon {
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 400;
     }
-
-
-    /* =====================================================
-       HISTORY
-    ===================================================== */
 
     .history {
       flex: 1;
-
-      min-height: 0;
-
+      padding: 0 8px 15px;
       overflow-y: auto;
-
-      margin-top: 18px;
-
-      padding-right: 2px;
     }
 
     .history::-webkit-scrollbar {
@@ -316,11 +167,7 @@
 
     .history::-webkit-scrollbar-thumb {
       background: #d1d5db;
-      border-radius: 20px;
-    }
-
-    .history::-webkit-scrollbar-track {
-      background: transparent;
+      border-radius: 10px;
     }
 
     .history-group {
@@ -328,158 +175,89 @@
     }
 
     .history-title {
-      padding:
-        0 8px 7px;
-
-      color: var(--muted-light);
-
+      padding: 0 9px 7px;
+      color: #9ca3af;
       font-size: 10px;
-      font-weight: 800;
-
-      letter-spacing: .07em;
-
+      font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     .history-item {
       width: 100%;
-
-      border: 0;
-
-      padding:
-        9px 10px;
-
-      border-radius: 9px;
-
+      display: block;
+      padding: 9px 10px;
+      margin-bottom: 2px;
+      border-radius: 7px;
       background: transparent;
-
-      color: var(--text-soft);
-
+      color: #374151;
+      font-size: 12px;
+      line-height: 1.4;
       text-align: left;
-
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-
-      font-size: 13px;
-
-      transition:
-        background .15s ease,
-        color .15s ease;
+      transition: 0.15s ease;
     }
 
     .history-item:hover {
-      background: #f3f4f6;
-
-      color: #111827;
+      background: #ececee;
     }
 
     .history-item.active {
-      background: #eef0f2;
-
+      background: #e5e7eb;
       color: #111827;
-
       font-weight: 600;
     }
 
-
-    /* =====================================================
-       SIDEBAR FOOTER
-    ===================================================== */
-
     .sidebar-footer {
-      margin-top: 8px;
-
-      padding-top: 12px;
-
-      border-top:
-        1px solid var(--border);
-
-      color: var(--muted);
-
-      font-size: 11px;
+      padding: 13px 15px;
+      border-top: 1px solid #e5e7eb;
+      color: #9ca3af;
+      font-size: 10px;
+      line-height: 1.5;
     }
 
-    .sidebar-footer a {
-      color: inherit;
-
-      text-decoration: none;
-    }
-
-    .sidebar-footer a:hover {
-      color: var(--text-soft);
-    }
-
-
-    /* =====================================================
+    /* =========================
        MAIN
-    ===================================================== */
+    ========================= */
 
     .main {
-      min-width: 0;
-
       flex: 1;
-
+      min-width: 0;
+      height: 100vh;
       display: flex;
       flex-direction: column;
-
-      height: 100vh;
+      background: #ffffff;
     }
-
-
-    /* =====================================================
-       TOPBAR
-    ===================================================== */
 
     .topbar {
       height: 58px;
-
-      flex: 0 0 58px;
-
+      flex-shrink: 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      padding:
-        0 20px;
-
-      border-bottom:
-        1px solid var(--border);
-
-      background:
-        rgba(255, 255, 255, .88);
-
-      backdrop-filter:
-        blur(14px);
-
-      -webkit-backdrop-filter:
-        blur(14px);
-
-      z-index: 10;
+      padding: 0 18px;
+      border-bottom: 1px solid #f0f0f1;
+      background: rgba(255, 255, 255, 0.96);
     }
 
     .topbar-left {
       display: flex;
       align-items: center;
-
       gap: 9px;
     }
 
     .menu {
-      display: none;
-
       width: 34px;
       height: 34px;
-
-      border: 0;
-
-      border-radius: 9px;
-
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border-radius: 7px;
       background: transparent;
-
-      color: var(--text);
-
-      font-size: 20px;
+      color: #4b5563;
+      font-size: 18px;
     }
 
     .menu:hover {
@@ -487,766 +265,422 @@
     }
 
     .model {
+      color: #111827;
       font-size: 14px;
-
       font-weight: 700;
-
-      letter-spacing: -.01em;
     }
 
     .status {
-      color: var(--green);
-
+      color: #6b7280;
       font-size: 11px;
+    }
 
-      font-weight: 500;
+    .status::first-letter {
+      color: #16a34a;
     }
 
     .top-actions {
       display: flex;
       align-items: center;
-
-      gap: 3px;
+      gap: 5px;
     }
 
-    .top-actions button {
+    .top-action {
       width: 34px;
       height: 34px;
-
-      display: grid;
-      place-items: center;
-
-      border: 0;
-
-      border-radius: 9px;
-
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 7px;
       background: transparent;
-
-      color: var(--muted);
-
-      font-size: 15px;
+      color: #6b7280;
+      font-size: 16px;
     }
 
-    .top-actions button:hover {
+    .top-action:hover {
       background: #f3f4f6;
-
-      color: var(--text-soft);
+      color: #111827;
     }
 
-
-    /* =====================================================
-       CHAT WRAPPER
-    ===================================================== */
+    /* =========================
+       CHAT
+    ========================= */
 
     .chat-wrap {
       position: relative;
-
       flex: 1;
-
       min-height: 0;
-
       display: flex;
       flex-direction: column;
-
-      background: var(--bg);
     }
-
-
-    /* =====================================================
-       MESSAGES
-    ===================================================== */
 
     .messages {
       flex: 1;
-
       min-height: 0;
-
+      width: 100%;
       overflow-y: auto;
-
-      padding:
-        32px 20px 180px;
-
+      padding: 32px 20px 25px;
       scroll-behavior: smooth;
     }
 
     .messages::-webkit-scrollbar {
-      width: 7px;
+      width: 6px;
     }
 
     .messages::-webkit-scrollbar-thumb {
       background: #d1d5db;
-
-      border-radius: 20px;
+      border-radius: 10px;
     }
 
-    .messages::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-
-    /* =====================================================
+    /* =========================
        WELCOME
-    ===================================================== */
+    ========================= */
 
     .welcome {
-      max-width: 720px;
-
-      margin: 0 auto;
-
-      padding:
-        9vh 20px 5vh;
-
+      width: min(760px, 100%);
+      margin: 8vh auto 0;
       text-align: center;
     }
 
     .welcome-logo {
-      width: 58px;
-      height: 58px;
-
-      margin:
-        0 auto 20px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 17px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #111827,
-          #374151
-        );
-
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 15px;
+      background: #111827;
       color: #ffffff;
-
-      font-size: 23px;
+      font-size: 22px;
       font-weight: 800;
-
-      box-shadow:
-        0 10px 30px
-        rgba(15, 23, 42, .15);
     }
 
     .welcome h1 {
-      margin:
-        0 0 10px;
-
+      margin: 0;
       color: #111827;
-
-      font-size:
-        clamp(26px, 4vw, 34px);
-
-      line-height: 1.15;
-
-      letter-spacing: -.04em;
+      font-size: clamp(25px, 4vw, 34px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
     }
 
     .welcome p {
-      max-width: 580px;
-
-      margin:
-        0 auto 30px;
-
-      color: var(--muted);
-
+      max-width: 570px;
+      margin: 12px auto 0;
+      color: #6b7280;
       font-size: 14px;
-
       line-height: 1.7;
     }
 
-
-    /* =====================================================
-       PROMPTS
-    ===================================================== */
-
     .prompt-grid {
-      max-width: 650px;
-
-      margin: 0 auto;
-
       display: grid;
-
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-      gap: 10px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      max-width: 620px;
+      margin: 28px auto 0;
     }
 
     .prompt {
-      border:
-        1px solid var(--border);
-
-      border-radius: 14px;
-
-      padding: 14px;
-
-      background:
-        rgba(255, 255, 255, .85);
-
-      color: var(--text-soft);
-
+      padding: 13px 14px;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      background: #ffffff;
+      color: #374151;
+      font-size: 12px;
       text-align: left;
-
-      font-size: 13px;
-
-      line-height: 1.5;
-
-      transition:
-        transform .15s ease,
-        border-color .15s ease,
-        box-shadow .15s ease,
-        background .15s ease;
+      line-height: 1.45;
+      transition: 0.18s ease;
     }
 
     .prompt:hover {
-      background: #ffffff;
-
-      border-color:
-        #cbd5e1;
-
-      transform:
-        translateY(-1px);
-
-      box-shadow:
-        0 8px 24px
-        rgba(15, 23, 42, .07);
+      border-color: #c9cdd3;
+      background: #fafafa;
+      transform: translateY(-1px);
     }
 
-    .prompt:active {
-      transform:
-        translateY(0);
-    }
-
-
-    /* =====================================================
+    /* =========================
        MESSAGE
-    ===================================================== */
+    ========================= */
 
     .message {
-      width: 100%;
-
-      max-width: 850px;
-
-      margin:
-        0 auto 24px;
-
+      width: min(780px, 100%);
+      margin: 0 auto 22px;
       display: flex;
-
-      animation:
-        messageIn .18s ease-out;
+      line-height: 1.7;
+      font-size: 14px;
     }
 
-    @keyframes messageIn {
-      from {
-        opacity: 0;
-
-        transform:
-          translateY(5px);
-      }
-
-      to {
-        opacity: 1;
-
-        transform:
-          translateY(0);
-      }
+    .message p {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
     }
-
-
-    /* USER MESSAGE */
 
     .user-message {
       justify-content: flex-end;
     }
 
     .user-message p {
-      max-width:
-        min(720px, 80%);
-
-      margin: 0;
-
-      padding:
-        11px 16px;
-
-      border-radius:
-        18px 18px 5px 18px;
-
-      background:
-        #111827;
-
-      color: #ffffff;
-
-      font-size: 14px;
-
-      line-height: 1.65;
-
-      overflow-wrap:
-        anywhere;
-
-      box-shadow:
-        var(--shadow-small);
-
-      white-space:
-        pre-wrap;
+      max-width: 76%;
+      padding: 10px 14px;
+      border-radius: 15px 15px 4px 15px;
+      background: #f1f1f1;
+      color: #1f2937;
     }
-
-
-    /* ASSISTANT MESSAGE */
 
     .assistant-message {
       justify-content: flex-start;
     }
 
     .assistant-message p {
-      max-width: 780px;
-
-      margin: 0;
-
-      padding:
-        4px 0;
-
+      max-width: 86%;
       color: #1f2937;
-
-      font-size: 15px;
-
-      line-height: 1.75;
-
-      overflow-wrap:
-        anywhere;
-
-      white-space:
-        pre-wrap;
     }
 
-
-    /* =====================================================
-       CODE
-    ===================================================== */
-
-    .assistant-message pre {
-      margin:
-        14px 0;
-
-      padding: 15px;
-
-      overflow-x: auto;
-
-      border-radius: 12px;
-
-      background:
-        #111827;
-
-      color:
-        #f8fafc;
-
-      font-size: 13px;
-    }
-
-    .assistant-message code {
-      font-family:
-        ui-monospace,
-        SFMono-Regular,
-        Menlo,
-        Monaco,
-        Consolas,
-        monospace;
-    }
-
-
-    /* =====================================================
+    /* =========================
        TYPING
-    ===================================================== */
+    ========================= */
 
     .typing-wrapper {
-      position: absolute;
-
-      left: 0;
-      right: 0;
-
-      bottom: 92px;
-
-      display: none;
-
-      pointer-events: none;
-
-      z-index: 4;
+      width: min(780px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 24px;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.15s ease;
     }
 
     .typing-wrapper.visible {
-      display: block;
+      visibility: visible;
+      opacity: 1;
     }
 
     .typing {
-      width:
-        min(850px, calc(100% - 40px));
-
-      margin: 0 auto;
-
       display: flex;
       align-items: center;
-
       gap: 4px;
+      padding: 4px 0;
     }
 
     .typing span {
-      width: 6px;
-      height: 6px;
-
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
-
-      background:
-        #9ca3af;
-
-      animation:
-        typingBounce 1.2s infinite;
+      background: #9ca3af;
+      animation: typing 1.2s infinite ease-in-out;
     }
 
     .typing span:nth-child(2) {
-      animation-delay:
-        .15s;
+      animation-delay: 0.15s;
     }
 
     .typing span:nth-child(3) {
-      animation-delay:
-        .3s;
+      animation-delay: 0.3s;
     }
 
-    @keyframes typingBounce {
+    @keyframes typing {
       0%,
       60%,
       100% {
-        opacity: .3;
-
-        transform:
-          translateY(0);
+        transform: translateY(0);
+        opacity: 0.4;
       }
 
       30% {
+        transform: translateY(-4px);
         opacity: 1;
-
-        transform:
-          translateY(-3px);
       }
     }
 
-
-    /* =====================================================
+    /* =========================
        COMPOSER
-    ===================================================== */
+    ========================= */
 
     .composer-area {
-      position: absolute;
-
-      left: 0;
-      right: 0;
-      bottom: 0;
-
-      z-index: 5;
-
-      padding:
-        35px 20px 14px;
-
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(247,247,248,0),
-          var(--bg) 35%
-        );
+      flex-shrink: 0;
+      width: min(780px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 8px 0 18px;
     }
 
     .composer {
-      width:
-        min(850px, 100%);
-
-      margin: 0 auto;
-
       display: flex;
       align-items: flex-end;
-
       gap: 8px;
-
-      padding: 8px;
-
-      border:
-        1px solid var(--border-dark);
-
-      border-radius: 18px;
-
-      background:
-        rgba(255, 255, 255, .97);
-
+      padding: 8px 8px 8px 14px;
+      border: 1px solid #d9d9dc;
+      border-radius: 14px;
+      background: #ffffff;
       box-shadow:
-        var(--shadow);
-
-      transition:
-        border-color .15s ease,
-        box-shadow .15s ease;
+        0 2px 8px rgba(0, 0, 0, 0.03),
+        0 0 0 1px rgba(0, 0, 0, 0.01);
+      transition: 0.18s ease;
     }
 
     .composer:focus-within {
-      border-color:
-        #9ca3af;
-
+      border-color: #bfc3c9;
       box-shadow:
-        0 10px 35px
-        rgba(15, 23, 42, .13);
+        0 3px 12px rgba(0, 0, 0, 0.04),
+        0 0 0 2px rgba(17, 24, 39, 0.03);
     }
 
-    .composer textarea {
+    #user-input {
       flex: 1;
-
       min-width: 0;
-
-      min-height: 42px;
       max-height: 180px;
-
-      padding:
-        10px 12px;
-
-      border: 0;
-      outline: 0;
-
+      min-height: 26px;
+      padding: 5px 0;
       resize: none;
-
-      overflow-y: auto;
-
-      background:
-        transparent;
-
+      border: 0;
+      outline: none;
+      background: transparent;
       color: #111827;
-
       font-size: 14px;
-
       line-height: 1.5;
+      overflow-y: auto;
     }
 
-    .composer textarea::placeholder {
+    #user-input::placeholder {
       color: #9ca3af;
     }
 
     .send {
-      width: 40px;
-      height: 40px;
-
-      flex: 0 0 40px;
-
-      display: grid;
-      place-items: center;
-
-      border: 0;
-
-      border-radius: 12px;
-
-      background:
-        #111827;
-
-      color:
-        #ffffff;
-
-      font-size: 18px;
-
-      transition:
-        transform .15s ease,
-        background .15s ease;
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9px;
+      background: #111827;
+      color: #ffffff;
+      font-size: 19px;
+      font-weight: 500;
+      transition: 0.18s ease;
     }
 
-    .send:hover:not(:disabled) {
-      background:
-        #1f2937;
-
-      transform:
-        translateY(-1px);
-    }
-
-    .send:active:not(:disabled) {
-      transform:
-        scale(.95);
+    .send:hover {
+      background: #000000;
+      transform: translateY(-1px);
     }
 
     .send:disabled {
-      background:
-        #d1d5db;
-
-      cursor:
-        not-allowed;
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
     }
 
     .composer-note {
-      width:
-        min(850px, 100%);
-
-      margin:
-        8px auto 0;
-
-      text-align:
-        center;
-
-      color:
-        #9ca3af;
-
-      font-size:
-        10px;
+      margin-top: 7px;
+      color: #9ca3af;
+      font-size: 10px;
+      text-align: center;
     }
 
-
-    /* =====================================================
+    /* =========================
        SEO
-    ===================================================== */
+    ========================= */
 
     .seo {
       display: none;
     }
 
-
-    /* =====================================================
+    /* =========================
        MOBILE
-    ===================================================== */
+    ========================= */
 
     @media (max-width: 760px) {
-
       .sidebar {
         position: fixed;
-
+        z-index: 100;
+        left: 0;
         top: 0;
-        bottom: 0;
-        left: -290px;
-
         width: 280px;
-
-        transition:
-          left .2s ease;
-
-        box-shadow:
-          20px 0 50px
-          rgba(0,0,0,.15);
+        transform: translateX(-100%);
+        transition: transform 0.2s ease;
+        box-shadow: 8px 0 25px rgba(0, 0, 0, 0.08);
       }
 
       .sidebar.open {
-        left: 0;
+        transform: translateX(0);
       }
 
       .menu {
-        display: grid;
-        place-items: center;
+        display: flex;
       }
 
       .topbar {
-        padding:
-          0 12px;
+        padding: 0 12px;
       }
 
       .messages {
-        padding:
-          20px 14px 175px;
+        padding: 22px 14px 20px;
       }
 
       .welcome {
-        padding:
-          8vh 10px 4vh;
+        margin-top: 8vh;
       }
 
       .welcome h1 {
-        font-size:
-          26px;
+        font-size: 25px;
       }
 
       .welcome p {
-        font-size:
-          13px;
+        font-size: 13px;
       }
 
       .prompt-grid {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
+        margin-top: 22px;
       }
 
       .message {
-        margin-bottom:
-          20px;
+        margin-bottom: 18px;
+        font-size: 14px;
       }
 
       .user-message p {
-        max-width:
-          86%;
+        max-width: 86%;
       }
 
       .assistant-message p {
-        font-size:
-          14px;
+        max-width: 95%;
+      }
+
+      .typing-wrapper,
+      .composer-area {
+        width: calc(100% - 28px);
       }
 
       .composer-area {
-        padding:
-          28px 10px 10px;
-      }
-
-      .typing {
-        width:
-          calc(100% - 28px);
-      }
-
-      .typing-wrapper {
-        bottom:
-          87px;
-      }
-
-      .model {
-        font-size:
-          13px;
-      }
-
-      .status {
-        font-size:
-          10px;
+        padding-bottom: 12px;
       }
     }
 
-
-    /* =====================================================
-       VERY SMALL MOBILE
-    ===================================================== */
-
     @media (max-width: 420px) {
+      .brand {
+        padding-top: 14px;
+      }
 
       .welcome-logo {
-        width: 52px;
-        height: 52px;
-
-        border-radius:
-          15px;
+        width: 46px;
+        height: 46px;
+        font-size: 19px;
       }
 
       .welcome h1 {
-        font-size:
-          24px;
+        font-size: 23px;
       }
 
-      .user-message p {
-        max-width:
-          90%;
+      .welcome p {
+        font-size: 12px;
       }
 
       .composer {
-        border-radius:
-          16px;
-      }
-
-      .send {
-        width: 38px;
-        height: 38px;
-
-        flex-basis:
-          38px;
+        border-radius: 13px;
       }
     }
-
   </style>
-
-
-  <!-- =====================================================
-       STRUCTURED DATA
-  ====================================================== -->
 
   <script type="application/ld+json">
   {
@@ -1254,97 +688,52 @@
     "@type": "WebApplication",
     "name": "AI Mr Ferdy",
     "url": "https://chat.aimrferdy.net/",
-    "description": "Aplikasi chat AI online gratis untuk menulis, coding, brainstorming, SEO, membuat konten, dan berbagai kebutuhan digital.",
-    "applicationCategory": "AIApplication",
-    "operatingSystem": "Web",
-    "inLanguage": "id-ID",
-    "isAccessibleForFree": true,
-    "publisher": {
-      "@type": "Organization",
-      "name": "AI Mr Ferdy",
-      "url": "https://aimrferdy.net/"
+    "description": "Chat AI online gratis berbahasa Indonesia untuk membantu menjawab pertanyaan, membuat tulisan, mencari ide, coding, dan berbagai kebutuhan lainnya.",
+    "applicationCategory": "Artificial Intelligence",
+    "operatingSystem": "Web Browser",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "IDR"
     }
   }
   </script>
-
 </head>
-
 
 <body>
 
   <div class="app">
 
-
-    <!-- ===================================================
-         SIDEBAR
-    ==================================================== -->
-
-    <aside
-      class="sidebar"
-      id="sidebar"
-    >
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
 
       <div class="brand">
+        <div class="brand-logo">F</div>
 
-        <div class="logo">
-          F
+        <div class="brand-text">
+          <div class="brand-name">AI Mr Ferdy</div>
+          <div class="brand-subtitle">Asisten AI Indonesia</div>
         </div>
-
-        <div>
-          <strong>
-            AI Mr Ferdy
-          </strong>
-
-          <small>
-            AI Chat Assistant
-          </small>
-        </div>
-
       </div>
 
-
-      <button
-        class="new-chat"
-        id="new-chat"
-        type="button"
-      >
-        ＋ New chat
+      <button class="new-chat" id="new-chat" type="button">
+        <span class="new-chat-icon">＋</span>
+        <span>Chat Baru</span>
       </button>
 
-
-      <div
-        class="history"
-        id="history"
-      ></div>
-
+      <div class="history" id="history"></div>
 
       <div class="sidebar-footer">
-
-        AI Mr Ferdy ·
-
-        <a
-          href="https://aimrferdy.net/"
-          rel="noopener"
-        >
-          aimrferdy.net
-        </a>
-
+        AI Mr Ferdy · Chat AI Online<br />
+        Percakapan disimpan di browser Anda.
       </div>
 
     </aside>
 
-
-    <!-- ===================================================
-         MAIN
-    ==================================================== -->
-
+    <!-- MAIN -->
     <main class="main">
 
-
-      <!-- =================================================
-           TOPBAR
-      ================================================== -->
-
+      <!-- TOPBAR -->
       <header class="topbar">
 
         <div class="topbar-left">
@@ -1353,29 +742,24 @@
             class="menu"
             id="menu"
             type="button"
-            aria-label="Open menu"
+            aria-label="Buka menu"
           >
             ☰
           </button>
 
-          <span class="model">
-            AI Mr Ferdy
-          </span>
-
-          <span class="status">
-            ● Online
-          </span>
+          <span class="model">AI Mr Ferdy</span>
+          <span class="status">● Online</span>
 
         </div>
-
 
         <div class="top-actions">
 
           <button
+            class="top-action"
             id="clear"
             type="button"
-            title="Clear current chat"
-            aria-label="Clear current chat"
+            title="Hapus percakapan"
+            aria-label="Hapus percakapan"
           >
             ⌫
           </button>
@@ -1384,250 +768,125 @@
 
       </header>
 
-
-      <!-- =================================================
-           CHAT
-      ================================================== -->
-
+      <!-- CHAT -->
       <section class="chat-wrap">
 
+        <div class="messages" id="chat-messages">
 
-        <!-- ===============================================
-             MESSAGES
-        ================================================ -->
+          <div class="welcome" id="welcome-screen">
 
-        <div
-          class="messages"
-          id="chat-messages"
-        >
+            <div class="welcome-logo">F</div>
 
-
-          <!-- =============================================
-               WELCOME SCREEN
-          ============================================== -->
-
-          <div
-            class="welcome"
-            id="welcome-screen"
-          >
-
-            <div class="welcome-logo">
-              F
-            </div>
-
-            <h1>
-              How can I help you today?
-            </h1>
+            <h1>Ada yang bisa saya bantu?</h1>
 
             <p>
-              Chat dengan AI Mr Ferdy untuk menulis,
-              coding, brainstorming, SEO, membuat konten,
-              belajar, dan berbagai kebutuhan digital lainnya.
+              Tanya apa saja ke AI Mr Ferdy. Mulai dari mencari ide,
+              menulis artikel, coding, belajar, sampai membantu berbagai
+              pekerjaan sehari-hari.
             </p>
 
-
             <div class="prompt-grid">
-
 
               <button
                 class="prompt"
                 type="button"
-                data-prompt="Bantu saya membuat artikel SEO yang menarik dan natural"
+                data-prompt="Bantu saya membuat ide konten yang menarik untuk website."
+              >
+                💡 Berikan saya ide konten
+              </button>
+
+              <button
+                class="prompt"
+                type="button"
+                data-prompt="Bantu saya membuat artikel SEO yang natural dan mudah dibaca."
               >
                 ✍️ Buat artikel SEO
               </button>
 
-
               <button
                 class="prompt"
                 type="button"
-                data-prompt="Bantu saya mencari ide konten website yang menarik"
-              >
-                💡 Cari ide konten
-              </button>
-
-
-              <button
-                class="prompt"
-                type="button"
-                data-prompt="Jelaskan konsep coding ini dengan bahasa sederhana"
+                data-prompt="Bantu saya membuat atau memperbaiki kode JavaScript."
               >
                 💻 Bantu coding
               </button>
 
-
               <button
                 class="prompt"
                 type="button"
-                data-prompt="Bantu saya membuat strategi SEO untuk website"
+                data-prompt="Jelaskan sebuah topik dengan bahasa Indonesia yang mudah dipahami."
               >
-                🚀 Strategi SEO
+                📚 Jelaskan sesuatu
               </button>
-
 
             </div>
 
           </div>
 
-
         </div>
 
-
-        <!-- ===============================================
-             TYPING INDICATOR
-        ================================================ -->
-
-        <div
-          class="typing-wrapper"
-          id="typing-indicator"
-        >
-
+        <!-- TYPING -->
+        <div class="typing-wrapper" id="typing-indicator">
           <div class="typing">
-
             <span></span>
             <span></span>
             <span></span>
-
           </div>
-
         </div>
 
-
-        <!-- ===============================================
-             COMPOSER
-        ================================================ -->
-
+        <!-- COMPOSER -->
         <div class="composer-area">
 
           <div class="composer">
 
             <textarea
               id="user-input"
-              placeholder="Message AI Mr Ferdy..."
               rows="1"
-              autocomplete="off"
-              spellcheck="true"
-              aria-label="Message AI Mr Ferdy"
+              placeholder="Tanyakan apa saja..."
+              aria-label="Tulis pesan"
             ></textarea>
-
 
             <button
               class="send"
               id="send-button"
               type="button"
-              aria-label="Send message"
-              title="Send message"
+              title="Kirim pesan"
+              aria-label="Kirim pesan"
             >
               ↑
             </button>
 
           </div>
 
-
           <div class="composer-note">
-            AI can make mistakes. Check important information.
+            AI Mr Ferdy bisa saja membuat kesalahan. Periksa kembali informasi penting.
           </div>
 
         </div>
 
-
       </section>
 
-
-      <!-- =================================================
-           SEO CONTENT
-      ================================================== -->
-
+      <!-- SEO CONTENT -->
       <section class="seo">
 
-        <div class="seo-inner">
+        <h2>AI Chat Online Gratis Bahasa Indonesia</h2>
 
-          <h2>
-            AI Mr Ferdy — Chat AI Online Gratis
-          </h2>
+        <p>
+          AI Mr Ferdy adalah layanan chat AI online yang dapat digunakan
+          untuk membantu berbagai kebutuhan seperti mencari ide, menulis,
+          belajar, coding, membuat konten, dan pekerjaan sehari-hari.
+        </p>
 
-          <p>
-            AI Mr Ferdy adalah
-            <strong>aplikasi chat AI online gratis</strong>
-            yang dirancang untuk membantu berbagai kebutuhan
-            digital. Kamu bisa menggunakan AI Mr Ferdy untuk
-            mencari ide, menulis artikel, membuat draft,
-            brainstorming, belajar, coding, SEO, dan berbagai
-            pekerjaan lainnya.
-          </p>
-
-
-          <h3>
-            Untuk apa AI Mr Ferdy bisa digunakan?
-          </h3>
-
-          <ul>
-
-            <li>
-              Membuat dan memperbaiki artikel,
-              caption, email, dan copywriting.
-            </li>
-
-            <li>
-              Brainstorming ide konten,
-              bisnis, website, dan project.
-            </li>
-
-            <li>
-              Membantu memahami kode,
-              debugging, dan kebutuhan coding.
-            </li>
-
-            <li>
-              Membantu riset awal SEO,
-              keyword, struktur konten, dan metadata.
-            </li>
-
-            <li>
-              Menjelaskan topik rumit
-              dengan bahasa yang lebih mudah dipahami.
-            </li>
-
-          </ul>
-
-
-          <h3>
-            Chat AI yang simpel dan nyaman
-          </h3>
-
-          <p>
-            AI Mr Ferdy dirancang dengan tampilan chat yang
-            sederhana dan nyaman digunakan di desktop maupun
-            perangkat mobile. Riwayat percakapan dapat disimpan
-            secara lokal di browser sehingga kamu bisa melanjutkan
-            percakapan sebelumnya.
-          </p>
-
-
-          <p>
-            Untuk berbagai AI tools dan tools online lainnya,
-            kunjungi
-            <a
-              href="https://aimrferdy.net/"
-              rel="noopener"
-            >
-              AI Mr Ferdy
-            </a>.
-          </p>
-
-        </div>
+        <p>
+          Gunakan AI Mr Ferdy sebagai asisten digital untuk mendapatkan
+          jawaban dan bantuan secara cepat langsung melalui browser.
+        </p>
 
       </section>
-
 
     </main>
 
   </div>
-
-
-  <!-- =====================================================
-       CHAT JAVASCRIPT
-  ====================================================== -->
 
   <script src="/chat.js"></script>
 
