@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="description" content="AI Mr Ferdy adalah aplikasi chat AI online untuk bertanya, menulis, brainstorming, coding, SEO, dan berbagai kebutuhan sehari-hari." />
+  <link rel="canonical" href="https://chat.aimrferdy.net/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AI Mr Ferdy — AI Chat Online" />
+  <meta property="og:description" content="Chat dengan AI Mr Ferdy untuk menulis, coding, brainstorming, SEO, dan mencari ide dengan cepat." />
+  <meta property="og:url" content="https://chat.aimrferdy.net/" />
+  <meta name="twitter:card" content="summary" />
+  <title>AI Mr Ferdy — AI Chat Online Gratis</title>
+  <style>
+    :root{--bg:#f7f7f8;--surface:#fff;--surface-2:#f1f2f4;--border:#e5e7eb;--text:#171717;--muted:#6b7280;--brand:#111827;--brand-2:#2563eb;--sidebar:#fff;--user:#f1f5f9;--shadow:0 8px 30px rgba(15,23,42,.07)}
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:var(--bg)}
+    button,textarea{font:inherit}button{cursor:pointer}
+    .app{display:flex;height:100vh;overflow:hidden}.sidebar{width:280px;background:var(--sidebar);border-right:1px solid var(--border);display:flex;flex-direction:column;padding:14px;flex-shrink:0}
+    .brand{display:flex;align-items:center;gap:10px;padding:8px 8px 18px}.logo{width:34px;height:34px;border-radius:10px;background:#111827;color:#fff;display:grid;place-items:center;font-weight:800}.brand strong{font-size:15px}.brand small{display:block;color:var(--muted);font-size:11px;margin-top:1px}
+    .new-chat{width:100%;border:1px solid var(--border);background:var(--surface);border-radius:10px;padding:10px 12px;text-align:left;font-weight:650;box-shadow:0 1px 2px rgba(0,0,0,.03)}.new-chat:hover{background:var(--surface-2)}
+    .history{overflow:auto;margin-top:18px;flex:1}.history-group{margin-bottom:18px}.history-title{font-size:11px;font-weight:750;color:#9ca3af;text-transform:uppercase;letter-spacing:.06em;padding:0 8px 6px}
+    .history-item{width:100%;border:0;background:transparent;text-align:left;padding:9px 10px;border-radius:8px;color:#374151;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13px}.history-item:hover,.history-item.active{background:#f3f4f6;color:#111827}
+    .sidebar-footer{border-top:1px solid var(--border);padding-top:12px;margin-top:8px;color:var(--muted);font-size:12px}.sidebar-footer a{color:inherit;text-decoration:none}
+    .main{min-width:0;flex:1;display:flex;flex-direction:column}.topbar{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;border-bottom:1px solid var(--border);background:rgba(255,255,255,.86);backdrop-filter:blur(10px);flex-shrink:0}
+    .topbar-left{display:flex;align-items:center;gap:10px}.menu{display:none;border:0;background:transparent;font-size:21px}.model{font-size:14px;font-weight:700}.status{font-size:11px;color:#16a34a}.top-actions button{border:0;background:transparent;color:#6b7280;padding:7px;border-radius:8px}.top-actions button:hover{background:#f3f4f6}
+    .chat-wrap{position:relative;flex:1;min-height:0;display:flex;flex-direction:column}.messages{flex:1;overflow-y:auto;padding:32px 20px 150px}.messages-inner{max-width:850px;margin:0 auto}
+    .welcome{text-align:center;padding:9vh 20px 4vh}.welcome-logo{width:52px;height:52px;border-radius:15px;background:#111827;color:#fff;display:grid;place-items:center;margin:0 auto 18px;font-size:21px;font-weight:800}.welcome h1{font-size:30px;letter-spacing:-.03em;margin:0 0 8px}.welcome p{color:var(--muted);margin:0 auto 26px;max-width:560px}
+    .prompt-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;max-width:650px;margin:auto}.prompt{border:1px solid var(--border);background:#fff;border-radius:12px;padding:12px;text-align:left;font-size:13px;color:#374151}.prompt:hover{border-color:#cbd5e1;background:#fafafa}
+    .message-row{display:flex;gap:12px;margin:0 auto 28px;max-width:850px}.message-row.user{justify-content:flex-end}.avatar{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;flex:0 0 30px;font-size:11px;font-weight:800}.ai-avatar{background:#111827;color:#fff}.user-avatar{background:#e5e7eb;color:#374151}
+    .message-content{max-width:760px;line-height:1.7;font-size:15px;overflow-wrap:anywhere}.user .message-content{background:var(--user);padding:10px 14px;border-radius:16px;max-width:680px}.message-content p{margin:0 0 10px}.message-content p:last-child{margin-bottom:0}.message-content pre{background:#111827;color:#f8fafc;padding:14px;border-radius:10px;overflow:auto}.message-content code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em}.message-content :not(pre)>code{background:#eef2f7;padding:2px 5px;border-radius:5px}.message-content ul{padding-left:22px}.message-actions{display:flex;gap:4px;margin-top:7px}.message-actions button{border:0;background:transparent;color:#9ca3af;font-size:11px;padding:3px 6px}.message-actions button:hover{color:#374151}
+    .composer-area{position:absolute;bottom:0;left:0;right:0;padding:20px 20px 12px;background:linear-gradient(transparent,var(--bg) 30%)}.composer{max-width:850px;margin:auto;background:#fff;border:1px solid #d1d5db;border-radius:16px;box-shadow:var(--shadow);padding:8px;display:flex;align-items:flex-end;gap:8px}.composer textarea{border:0;outline:0;resize:none;flex:1;min-height:42px;max-height:180px;padding:10px 12px;line-height:1.5;background:transparent}.send{width:40px;height:40px;border:0;border-radius:11px;background:#111827;color:#fff;font-size:17px}.send:disabled{background:#d1d5db}.composer-note{text-align:center;color:#9ca3af;font-size:10px;margin-top:8px}
+    .typing{display:flex;gap:4px;padding:5px 0}.typing span{width:6px;height:6px;background:#9ca3af;border-radius:50%;animation:b 1.2s infinite}.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}@keyframes b{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+    .seo{background:#fff;border-top:1px solid var(--border);padding:48px 20px}.seo-inner{max-width:850px;margin:auto}.seo h2{font-size:24px;margin:0 0 12px}.seo h3{font-size:18px;margin:28px 0 8px}.seo p,.seo li{color:#4b5563;line-height:1.75}.seo a{color:#2563eb}
+    @media(max-width:760px){.sidebar{position:fixed;z-index:20;left:-290px;top:0;bottom:0;transition:left .2s}.sidebar.open{left:0;box-shadow:20px 0 50px rgba(0,0,0,.15)}.menu{display:block}.prompt-grid{grid-template-columns:1fr}.messages{padding-left:14px;padding-right:14px}.composer-area{padding-left:12px;padding-right:12px}.welcome h1{font-size:25px}.topbar{padding:0 12px}}
+  </style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"AI Mr Ferdy","url":"https://chat.aimrferdy.net/","description":"Aplikasi chat AI online untuk menulis, coding, brainstorming, SEO, dan berbagai kebutuhan sehari-hari.","applicationCategory":"AIApplication","operatingSystem":"Web","inLanguage":"id-ID","publisher":{"@type":"Organization","name":"AI Mr Ferdy","url":"https://aimrferdy.net/"}}</script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><div class="logo">F</div><div><strong>AI Mr Ferdy</strong><small>AI Chat Assistant</small></div></div>
+    <button class="new-chat" id="new-chat">＋ New chat</button>
+    <div class="history" id="history"></div>
+    <div class="sidebar-footer">AI Mr Ferdy · <a href="https://aimrferdy.net/">aimrferdy.net</a></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div class="topbar-left"><button class="menu" id="menu">☰</button><span class="model">AI Mr Ferdy</span><span class="status">● Online</span></div><div class="top-actions"><button id="clear" title="Clear current chat">⌫</button></div></header>
+    <section class="chat-wrap">
+      <div class="messages" id="chat-messages"><div class="messages-inner" id="messages-inner"></div></div>
+      <div class="composer-area"><div class="composer"><textarea id="user-input" placeholder="Message AI Mr Ferdy..." rows="1" autofocus></textarea><button class="send" id="send-button" aria-label="Send">↑</button></div><div class="composer-note">AI can make mistakes. Check important information.</div></div>
+    </section>
+    <section class="seo"><div class="seo-inner">
+      <h2>AI Mr Ferdy — Chat AI Online</h2>
+      <p>AI Mr Ferdy adalah <strong>aplikasi chat AI online</strong> yang dirancang untuk membantu kamu mencari ide, menulis konten, membuat draft, brainstorming, belajar, coding, SEO, dan pekerjaan digital lainnya. Gunakan chat di atas untuk memulai percakapan dengan cepat tanpa tampilan yang ribet.</p>
+      <h3>Untuk apa AI Mr Ferdy bisa digunakan?</h3>
+      <ul><li>Membuat dan memperbaiki artikel, caption, email, dan copywriting.</li><li>Brainstorming ide konten, bisnis, website, dan project.</li><li>Membantu memahami kode, debugging, dan kebutuhan coding.</li><li>Membantu riset awal SEO, keyword, struktur konten, dan metadata.</li><li>Menjelaskan topik rumit dengan bahasa yang lebih mudah dipahami.</li></ul>
+      <h3>Chat AI yang simpel dan nyaman</h3>
+      <p>Riwayat percakapan disimpan di browser untuk membantu kamu melanjutkan chat. Percakapan dikelompokkan berdasarkan waktu seperti <strong>Today</strong>, <strong>Yesterday</strong>, <strong>Previous 7 Days</strong>, dan <strong>Older</strong>. Untuk fitur AI tools lainnya, kunjungi <a href="https://aimrferdy.net/">AI Mr Ferdy</a>.</p>
+    </div></section>
+  </main>
+</div>
+<script src="chat.js"></script>
+</body>
+</html>
